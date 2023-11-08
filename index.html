@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/todomvc-common@1.0.5/base.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/todomvc-app-css@2.1.2/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.js"></script>
+    <title>프레임워크 없는 프론트엔드 개발 : 렌더링</title>
+  </head>
+
+  <body>
+    <section class="todoapp">
+      <header class="header">
+        <h1>Todo 리스트</h1>
+        <input class="new-todo" placeholder="해야할 일이 뭐에요?" autofocus="" />
+      </header>
+      <section class="main">
+        <input id="toggle-all" class="toggle-all" type="checkbox" />
+        <label for="toggle-all"> 모두 완료로 표시 </label>
+        <ul class="todo-list"></ul>
+      </section>
+      <footer class="footer">
+        <span class="todo-count">1개의 항목이 남았음</span>
+        <ul class="filters">
+          <li>
+            <a href="#/">All</a>
+          </li>
+          <li>
+            <a href="#/active">Active</a>
+          </li>
+          <li>
+            <a href="#/completed">Completed</a>
+          </li>
+        </ul>
+        <button class="clear-completed">완성된 목록 초기화</button>
+      </footer>
+    </section>
+    <footer class="info">
+      <p>Double-click to edit a todo</p>
+    </footer>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
