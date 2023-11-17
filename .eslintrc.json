@@ -1,0 +1,106 @@
+{
+    // 파서에 전달되는 옵션들을 정의한다.
+    "parserOptions": {
+        // ECMAScript 버전을 최신 버전으로 지정
+        "ecmaVersion": "latest"
+    },
+    /* parser: 사용할 파서를 지정합니다. 이 예시에서는 Babel과 ESLint를 함께 사용할 때 필요한 @babel/eslint-parser를 사용하고 있습니다. */
+    "parser": "@babel/eslint-parser",
+    //코드가 실행될 환경을 설정합니다.
+    "env": {
+        /*
+        browser: 브라우저 환경에서 실행되는 코드를 허용합니다.
+        node: Node.js 환경에서 실행되는 코드를 허용합니다.
+        commonjs: CommonJS 모듈 시스템을 사용하는 코드를 허용합니다.
+        es2022: ES2022 문법을 사용하는 코드를 허용합니다.
+        */
+        "browser": true,
+        "node": true,
+        "commonjs": true,
+        "es2022": true
+    },
+    //전역 변수를 설정합니다.  _ (언더스코어)가 전역 변수로 사용되는 것을 허용하고 있습니다.
+    "globals": {
+        "_": true
+    },
+    //ESLint 플러그인을 설정합니다. 이 예시에서는 import와 html 플러그인을 사용하고 있습니다.
+    "plugins": [
+        "import",
+        "html"
+    ],
+    /*
+        extends: 설정을 확장하는데 사용되는 구성을 지정합니다.
+        airbnb-base: Airbnb에서 제공하는 JavaScript 스타일 가이드를 사용합니다.
+        prettier: 코드 포맷팅에 사용되는 Prettier 스타일을 적용합니다.
+    */
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
+    /*
+    rules =>  ESLint 규칙을 설정합니다.
+    각 규칙은 특정 규칙을 끄거나("off"), 경고로 설정("warn"), 또는 에러로 설정("error")할 수 있습니다. 
+    규칙의 이름 뒤에 해당 수준이 지정됩니다.
+
+    "no-console": console 사용을 경고 수준으로 설정합니다.
+    "prefer-arrow-callback": 콜백 함수에 화살표 함수 사용을 에러 수준으로 설정합니다.
+    "max-len": 코드 라인 길이를 제한하여 최대 길이를 120자로 설정합니다.
+
+    */
+    "rules": {
+        // "off" or 0 - turn the rule off
+        // "warn" or 1 - turn the rule on as a warning (doesn’t affect exit code)
+        // "error" or 2 - turn the rule on as an error (exit code is 1 when triggered)
+        // "no-var": "off",
+        "no-console": "warn",
+        "no-plusplus": "off",
+        "no-shadow": "off",
+        "vars-on-top": "off",
+        "no-underscore-dangle": "off", // var _foo;
+        "comma-dangle": "off",
+        "func-names": "off", // setTimeout(function () {}, 0);
+        "prefer-template": "off",
+        "no-nested-ternary": "off",
+        "max-classes-per-file": "off",
+        "consistent-return": "off",
+        "no-restricted-syntax": [
+            "off",
+            "ForOfStatement"
+        ], // disallow specified syntax(ex. WithStatement)
+        "prefer-arrow-callback": "error", // Require using arrow functions for callbacks
+        "require-await": "error",
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ], // a => {}
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "no-unused-expressions": [
+            "error",
+            {
+                "allowTernary": true, // a || b
+                "allowShortCircuit": true, // a ? b : 0
+                "allowTaggedTemplates": true
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 120,
+                "ignoreComments": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true
+            }
+        ] // prettier의 printWidth 옵션 대신 사용
+    }
+}
